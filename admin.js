@@ -1,38 +1,31 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-// GABUNGAN FIRESTORE (admin.js butuh addDoc dan collection juga)
 import { getFirestore, doc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-const auth = getAuth();
-const db = getFirestore();
-
-onAuthStateChanged(auth, async (user) => {
-    if (user) {
-        const userDoc = await getDoc(doc(db, "users", user.uid));
-        if (!userDoc.exists() || userDoc.data().role !== 'guru') {
-            alert("Akses Ditolak! Anda bukan Guru.");
-            window.location.href = "login.html"; // Tendang balik ke login
-        }
-    } else {
-        window.location.href = "login.html";
-    }
-});
-
-// 2. KONFIGURASI FIREBASE (Pastikan Key Asli)
 const firebaseConfig = {
     apiKey: "AIzaSyBahvtobUXJUkIYmqyFOKxsdAcEt7WbK0E",
     authDomain: "cbt-smaich.firebaseapp.com",
     projectId: "cbt-smaich",
     storageBucket: "cbt-smaich.firebasestorage.app",
     messagingSenderId: "549681496019",
-    appId: "1:549681496019:web:9e557b569413cdca3ff926",
-    measurementId: "G-MPX858Y2QS"
+    appId: "1:549681496019:web:9e557b569413cdca3ff926"
 };
 
-// 3. INISIALISASI
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (!userDoc.exists() || userDoc.data().role !== 'guru') {
+            alert("Akses Ditolak! Anda bukan Guru.");
+            window.location.href = "login.html"; 
+        }
+    } else {
+        window.location.href = "login.html";
+    }
+});
 
 document.getElementById('btnSimpan').addEventListener('click', async () => {
     const mapel = document.getElementById('mapel').value;
@@ -43,29 +36,21 @@ document.getElementById('btnSimpan').addEventListener('click', async () => {
     const opsiD = document.getElementById('opsiD').value;
     const kunciJawaban = document.getElementById('kunciJawaban').value;
 
-    // Validasi sederhana agar form tidak kosong
     if(!mapel || !teksSoal || !opsiA || !opsiB || !opsiC || !opsiD) {
         alert("Mohon lengkapi semua kolom!");
         return;
     }
 
     try {
-        // Menyimpan data ke koleksi yang ditentukan oleh input Guru
         const docRef = await addDoc(collection(db, mapel), {
             teks_soal: teksSoal,
-            opsi: {
-                A: opsiA,
-                B: opsiB,
-                C: opsiC,
-                D: opsiD
-            },
+            opsi: { A: opsiA, B: opsiB, C: opsiC, D: opsiD },
             jawaban_benar: kunciJawaban,
-            timestamp: new Date() // Menyimpan waktu soal dibuat
+            timestamp: new Date() 
         });
         
         alert("Berhasil! Soal telah ditambahkan dengan ID: " + docRef.id);
         
-        // Mengosongkan form kembali untuk soal berikutnya
         document.getElementById('teksSoal').value = '';
         document.getElementById('opsiA').value = '';
         document.getElementById('opsiB').value = '';
