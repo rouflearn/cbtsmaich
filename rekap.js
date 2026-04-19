@@ -2,18 +2,27 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebas
 import { getFirestore, collection, getDocs, query, where, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyB8R0VNO0noUlkcUcjBkpsGFrYPdtA7KxM",
-  authDomain: "cbt-sekolah-7fed0.firebaseapp.com",
-  projectId: "cbt-sekolah-7fed0",
-  storageBucket: "cbt-sekolah-7fed0.firebasestorage.app",
-  messagingSenderId: "289218396137",
-  appId: "1:289218396137:web:366383efd1348edad3d578",
-  measurementId: "G-GF6PJWK2S5"
-};
+// Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBahvtobUXJUkIYmqyFOKxsdAcEt7WbK0E",
+    authDomain: "cbt-smaich.firebaseapp.com",
+    projectId: "cbt-smaich",
+    storageBucket: "cbt-smaich.firebasestorage.app",
+    messagingSenderId: "549681496019",
+    appId: "1:549681496019:web:9e557b569413cdca3ff926",
+    measurementId: "G-MPX858Y2QS"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
 const tableBody = document.getElementById('tableBody');
 const btnRefresh = document.getElementById('btnRefresh');
