@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT - SMA Islam Cikal Harapan I BSD</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 2px solid #0056b3; padding-bottom: 10px; margin-bottom: 20px; }
+        .header h1 { color: #0056b3; margin: 0; }
+        .header p { color: #555; margin: 5px 0 0 0; }
+        .question-card { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { background-color: #0056b3; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-size: 16px; }
+        .btn:hover { background-color: #004494; }
+        #login-section, #exam-section { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>CBT SMA Islam Cikal Harapan I BSD</h1>
+        <p>Sistem Ujian Berbasis Komputer</p>
+    </div>
+
+    <div id="login-section" style="display: block;">
+        <h3>Silakan Login</h3>
+        <input type="email" id="email" placeholder="Email Siswa" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <button class="btn" id="btnLogin" style="width: 100%;">Masuk</button>
+    </div>
+
+   <div id="timer-display" style="font-size: 20px; font-weight: bold; color: #dc3545; text-align: right; margin-bottom: 15px;">
+    Sisa Waktu: <span id="time">00:00</span>
+    </div>
+
+    <div id="exam-section">
+        <h3 id="student-info">Selamat Mengerjakan!</h3>
+        <div id="questions-container">
+            </div>
+        <button class="btn" id="btnSubmit">Selesaikan Ujian</button>
+    </div>
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>

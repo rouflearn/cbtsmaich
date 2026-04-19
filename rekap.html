@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Nilai - SMA Islam Cikal Harapan I BSD</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f7f6; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #28a745; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #28a745; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .badge { padding: 5px 10px; border-radius: 4px; font-weight: bold; }
+        .lulus { background-color: #d4edda; color: #155724; }
+        .remedial { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2>Rekapitulasi Nilai CBT</h2>
+        <p>SMA Islam Cikal Harapan I BSD</p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label>Filter Mata Pelajaran:</label>
+        <select id="filterMapel" style="padding: 5px; border-radius: 4px;">
+            <option value="soal_biologi_x">Biologi Kelas X</option>
+            </select>
+        <button id="btnRefresh" style="padding: 5px 15px; cursor: pointer;">Refresh Data</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Siswa</th>
+                <th>Benar</th>
+                <th>Salah</th>
+                <th>Nilai</th>
+                <th>Waktu Selesai</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            </tbody>
+    </table>
+</div>
+
+<script type="module" src="rekap.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<div style="margin-bottom: 20px;">
+    <label>Filter Mata Pelajaran:</label>
+    <select id="filterMapel" style="padding: 5px; border-radius: 4px;">
+        <option value="soal_biologi_x">Biologi Kelas X</option>
+    </select>
+    <button id="btnRefresh" style="padding: 5px 15px; cursor: pointer;">Refresh Data</button>
+    
+    <button id="btnExport" style="padding: 5px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; margin-left: 10px;">
+        📥 Ekspor ke Excel
+    </button>
+</div>
+</body>
+</html>
