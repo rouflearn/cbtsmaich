@@ -17,24 +17,25 @@ onAuthStateChanged(auth, async (user) => {
     }
 });
 
-// Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// 1. IMPORT (Gunakan satu versi: 10.8.1)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// 2. KONFIGURASI FIREBASE (Pastikan Key Asli)
 const firebaseConfig = {
-  apiKey: "API_KEY_ANDA",
-  authDomain: "cbt-cikalharapan.firebaseapp.com",
-  projectId: "cbt-cikalharapan",
-  storageBucket: "cbt-cikalharapan.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
+    apiKey: "AIzaSyBahvtobUXJUkIYmqyFOKxsdAcEt7WbK0E",
+    authDomain: "cbt-smaich.firebaseapp.com",
+    projectId: "cbt-smaich",
+    storageBucket: "cbt-smaich.firebasestorage.app",
+    messagingSenderId: "549681496019",
+    appId: "1:549681496019:web:9e557b569413cdca3ff926",
+    measurementId: "G-MPX858Y2QS"
 };
 
+// 3. INISIALISASI
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const db = getFirestore(app);
 
 document.getElementById('btnSimpan').addEventListener('click', async () => {
