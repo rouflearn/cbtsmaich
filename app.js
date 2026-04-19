@@ -1,3 +1,8 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+// GABUNGAN FIRESTORE (Hanya 1 baris ini saja untuk firestore)
+import { getFirestore, collection, addDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
 // Tambahkan import ini di bagian atas app.js
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
@@ -83,11 +88,6 @@ async function submitExam() {
     }
 }
 
-// 1. IMPORT (Gunakan satu versi: 10.8.1)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
 // 2. KONFIGURASI FIREBASE (Pastikan Key Asli)
 const firebaseConfig = {
     apiKey: "AIzaSyBahvtobUXJUkIYmqyFOKxsdAcEt7WbK0E",
@@ -142,8 +142,6 @@ onAuthStateChanged(auth, (user) => {
 });
 
 // Fungsi Mengambil Soal dari Firestore
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
 async function loadQuestions() {
     const mapelID = "soal_biologi_x"; // Ini bisa dibuat dinamis nanti
     
