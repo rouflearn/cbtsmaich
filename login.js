@@ -1,16 +1,10 @@
+// 1. IMPORT (Gunakan satu versi: 10.8.1)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-// Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+// 2. KONFIGURASI FIREBASE (Pastikan Key Asli)
+const firebaseConfig = {
     apiKey: "AIzaSyBahvtobUXJUkIYmqyFOKxsdAcEt7WbK0E",
     authDomain: "cbt-smaich.firebaseapp.com",
     projectId: "cbt-smaich",
@@ -18,16 +12,14 @@ import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10
     messagingSenderId: "549681496019",
     appId: "1:549681496019:web:9e557b569413cdca3ff926",
     measurementId: "G-MPX858Y2QS"
-  };
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
+// 3. INISIALISASI
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// 3. LOGIKA PROGRAM
 const btnLogin = document.getElementById('btnLogin');
 
 btnLogin.addEventListener('click', async () => {
